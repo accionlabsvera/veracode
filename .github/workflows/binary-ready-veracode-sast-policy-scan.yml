@@ -110,7 +110,7 @@ jobs:
   code-scanning-alert:
     needs: policy_scan
     runs-on: ubuntu-latest
-    if: ${{ github.event.client_payload.user_config.create_code_scanning_alert }}
+    if: ${{ github.event.client_payload.user_config.create_code_scanning_alert && always() }}
     name: Create code scanning alerts
     steps:
       - name: Get scan results
@@ -149,7 +149,7 @@ jobs:
 
   create-issues:
     needs: policy_scan
-    if: ${{ github.event.client_payload.user_config.create_issue }}
+    if: ${{ github.event.client_payload.user_config.create_issue && always() }}
     runs-on: ubuntu-latest
     name: Create issues
     steps:
