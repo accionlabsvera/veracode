@@ -21,8 +21,8 @@ veracode_static_scan:
   # By selecting a branch here - Veracode will save your last scan result
   # As an App Profile - given the current name of your scanned repo
   # Use 'none' if you would not like any scans saved to the platform
-  analysis_branch: ENTER_BRANCH_NAME_HERE
-  analysis_on_platform: false
+  analysis_branch: default_branch
+  analysis_on_platform: true
   break_build_policy_findings: true
   filter_mitigated_flaws: true
   #If break_build_invalid_policy is set to true, the build will break when the policy name is invalid.
@@ -38,14 +38,14 @@ veracode_static_scan:
   # workflow for each repository.
   use_custom_workflow: ENTER_WORKFLOW_NAME
   #If the create_code_scanning_alert is set to true, code scanning alert for static findings will be created under GitHub Security.
-  create_code_scanning_alert: false
+  create_code_scanning_alert: true
   #If the create_issue is set to true, GitHub Issues will be created for static findings.
-  create_issue: false
+  create_issue: true
   #If the trigger is set to true, the scan will be triggered when a command matches by either creating an issue or adding a comment to an issue.
   issues:
-    trigger: false
+    trigger: true
     commands:
-      - "ENTER_COMMAND_TO_EXECUTE_SCAN"
+      - Veracode Static
 
 veracode_sca_scan:   
   # Please only specify trigger:true for either push event or 
